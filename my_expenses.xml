@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?> 
+<expenses>
+  <expense date='01.09.2017' category='Образование' amount='900'>
+     Книжка по Ruby on Rails 
+  </expense>
+  <expense date='17.09.2017' category='Одежда' amount='4800'>
+     Куртка 
+  </expense>
+  <expense date='01.10.2017' category='Очки' amount='3500'>
+     Очки(оправа+линзы) 
+  </expense>
+  <expense amount='900' category='хобби' date='2017-10-05'>
+     комикс 
+  </expense>
+  <expense date='2017-10-05' category='продукты' amount='500'>
+    молоко, хлеб, колбаса, яица
+  </expense>
+</expenses>

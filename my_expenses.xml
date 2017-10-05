@@ -13,6 +13,9 @@
      комикс 
   </expense>
   <expense date='2017-10-05' category='продукты' amount='500'>
-    молоко, хлеб, колбаса, яица
+     молоко, хлеб, колбаса, яица 
+  </expense>
+  <expense date='2017-10-05' category='средства гигиены' amount='300'>
+    шампунь
   </expense>
 </expenses>

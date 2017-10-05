@@ -14,7 +14,7 @@ puts "На что потратили деньги?"
 expense_text = STDIN.gets.chomp
 
 puts "Сколько потратили?"
-expense_amount = STDIN.gets.chomp.to_i
+expense_amount = STDIN.gets.to_i
 
 puts "Укажите дату траты в формате ДД.ММ.ГГГГ, например, 12.10.2017 (пустое поле - сегодня)"
 date_input = STDIN.gets.chomp
@@ -33,23 +33,28 @@ expense_category = STDIN.gets.chomp
 current_path = File.dirname(__FILE__)
 file_name = current_path + '/my_expenses.xml'
 
-file = File.new(file_name,"r:UTF-8")
-doc = REXML::Document.new(file)
+file = File.new(file_name, 'r:UTF-8')
+begin
+  doc = REXML::Document.new(file)
+rescue REXML::ParseException => e
+  puts "XML файл похоже битый :("
+  abort e.message
+end
 file.close
 
 expenses = doc.elements.find('expenses').first
 
 expense = expenses.add_element 'expense', {
-                            'date' => expense_date.to_s,
-                            'category' => expense_category,
-                            'amount' => expense_amount
+    'date' => expense_date.to_s,
+    'category' => expense_category,
+    'amount' => expense_amount
 
 }
 
 expense.text = expense_text
 
-file = File.new(file_name,"w:UTF-8")
-doc.write(file,2)
+file = File.new(file_name, "w:UTF-8")
+doc.write(file, 2)
 file.close
 
 puts "Запись успешно сохранена"
